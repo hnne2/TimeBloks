@@ -25,6 +25,5 @@ public class mThumIds {
             R.drawable.pust, R.drawable.pust,R.drawable.pust,R.drawable.pust,
             R.drawable.n22, R.drawable.pust,R.drawable.pust,R.drawable.pust,
             R.drawable.pust
-
     };
 }

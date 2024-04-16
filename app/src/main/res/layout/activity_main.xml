@@ -8,29 +8,28 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/SelectData"
-        android:layout_width="151dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/button_rounded"
         android:onClick="setDate"
         android:text="Выбрать дату"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <GridView
         android:id="@+id/gridView1"
-        android:layout_width="370dp"
-        android:layout_height="634dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:columnWidth="0dp"
         android:gravity="center"
         android:numColumns="5"
         android:stretchMode="columnWidth"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SelectData"></GridView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></GridView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
