@@ -10,7 +10,7 @@
         android:id="@+id/SelectData"
         android:layout_width="151dp"
         android:layout_height="40dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/button_rounded"
         android:onClick="setDate"
         android:text="Выбрать дату"
@@ -18,57 +18,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/selectedDate"
-        android:layout_width="131dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/SelectData"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.867"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <GridView
         android:id="@+id/gridView1"
-        android:layout_width="386dp"
-        android:layout_height="523dp"
-        android:layout_marginTop="32dp"
-        android:columnWidth="10dp"
+        android:layout_width="370dp"
+        android:layout_height="634dp"
+        android:layout_marginTop="16dp"
+        android:columnWidth="0dp"
         android:gravity="center"
-        android:horizontalSpacing="0dp"
         android:numColumns="5"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SelectData"></GridView>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/Clear_Batton"
-        android:layout_width="176dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/button_rounded"
-        android:onClick="clearInfo"
-        android:text="Очистить выбор"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridView1" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="129dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
-        android:text="Текущая дата:"
-        app:layout_constraintBottom_toTopOf="@+id/SelectData"
-        app:layout_constraintEnd_toStartOf="@+id/selectedDate"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
@@ -30,15 +31,18 @@ public class MainActivity extends AppCompatActivity {
     ImageAdapter imageAdapter=new ImageAdapter(this);
     GridView gridview;
     private DaysAppDataBase daysAppDataBase;
-    TextView currentDateTime;
+
     Calendar dateAndTime = Calendar.getInstance();
+    Button currentDateTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        currentDateTime = findViewById(R.id.selectedDate);
+
+
+        currentDateTime = findViewById(R.id.SelectData);
 
         gridview = findViewById(R.id.gridView1);
         setInitialDate();

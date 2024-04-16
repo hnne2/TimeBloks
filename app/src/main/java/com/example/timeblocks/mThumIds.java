@@ -3,7 +3,7 @@ package com.example.timeblocks;
 public class mThumIds {
     public	int[] mThumbIds = { R.drawable.nopging,
             R.drawable.m15,R.drawable.m30,R.drawable.m45,R.drawable.m60,
-            R.drawable.n6, R.drawable.pust,R.drawable.pust,R.drawable.pust,
+            R.drawable.n6, R.drawable.n1,R.drawable.pust,R.drawable.pust,
             R.drawable.pust, R.drawable.n7,R.drawable.pust,R.drawable.pust,
             R.drawable.pust, R.drawable.pust,R.drawable.n8,R.drawable.pust,
             R.drawable.pust, R.drawable.pust,R.drawable.pust,R.drawable.n9,
