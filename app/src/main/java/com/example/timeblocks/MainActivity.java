@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     Calendar dateAndTime = Calendar.getInstance();
     Button currentDateTime;
+    TextView statickTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         currentDateTime = findViewById(R.id.SelectData);
+        statickTextView = findViewById(R.id.StatickTextView);
 
         gridview = findViewById(R.id.gridView1);
         setInitialDate();
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         if ( daysAppDataBase.getDayDao().findByDate(currentDateTime.getText().toString())!=null){
             imageAdapter.mThumbIds=stringToIntArray(daysAppDataBase.getDayDao().findByDate(currentDateTime.getText().toString()).dayInfo);
         }
-
+        statickTextView.setText(getStatick(Arrays.toString(imageAdapter.mThumbIds)));
         gridview.setAdapter(imageAdapter);
         gridview.setOnItemClickListener(gridviewOnItemClickListener);
     }
@@ -61,13 +63,16 @@ public class MainActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View v, int position,
                                 long id) {
         if (position!=0){
+
+
             if (imageAdapter.mThumbIds[position] == R.drawable.pust) {
                 imageAdapter.mThumbIds[position] = R.drawable.gal;
             } else if (imageAdapter.mThumbIds[position] == R.drawable.gal) {
                 imageAdapter.mThumbIds[position] = R.drawable.krestik;
             } else if (imageAdapter.mThumbIds[position] == R.drawable.krestik) {
                 imageAdapter.mThumbIds[position] = R.drawable.pust;
-            } 
+            }
+            statickTextView.setText(getStatick(Arrays.toString(imageAdapter.mThumbIds)));
             gridview.setAdapter(imageAdapter);
         }}
     };
@@ -95,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     imageAdapter.mThumbIds=new mThumIds().mThumbIds;
                 }else {
                imageAdapter.mThumbIds=stringToIntArray(daysAppDataBase.getDayDao().findByDate(currentDateTime.getText().toString()).dayInfo);}
+                statickTextView.setText(getStatick(Arrays.toString(imageAdapter.mThumbIds)));
               gridview.setAdapter(imageAdapter);
             }
         });
@@ -136,10 +142,38 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        daysAppDataBase.getDayDao().updateDayInfoByDayData(Arrays.toString(imageAdapter.mThumbIds),currentDateTime.getText().toString());
+
+        daysAppDataBase = Room.databaseBuilder(getApplicationContext(),DaysAppDataBase.class,"DaysDB").allowMainThreadQueries().build();
+        if ( daysAppDataBase.getDayDao().findByDate(currentDateTime.getText().toString())==null){
+            Log.e("log","закрылось окно сработал иф");
+            daysAppDataBase.getDayDao().insertAll(new Day(Arrays.toString(imageAdapter.mThumbIds),currentDateTime.getText().toString()));}
+        else {
+            daysAppDataBase.getDayDao().updateDayInfoByDayData(Arrays.toString(imageAdapter.mThumbIds),currentDateTime.getText().toString());
+        }
         Log.e("log","закрылось окно");     }
     public void clearInfo(View v){
         imageAdapter.mThumbIds=new mThumIds().mThumbIds;
         gridview.setAdapter(imageAdapter);
+    }
+    public String getStatick(String string){
+        int white=0;
+        int green=0;
+        int red=0;
+        string =removeFirstAndLastChar(string);
+        String[] stringArr = string.split(",");
+
+        for (String word:stringArr
+             ) {
+            if (word.contains("2131165336")) {
+                red++;
+            }
+            if (word.contains("2131165320")) {
+                green++;
+            }
+            if (word.contains("2131165431")) {
+                white++;
+            }
+        }
+        return green+"/"+red+"/"+ white;
     }
 }
